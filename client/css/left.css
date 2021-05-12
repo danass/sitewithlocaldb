@@ -1,0 +1,117 @@
+.s-typ {
+  font-weight: 600; 
+  float: right;
+  padding: 0.5vh;
+  color: rgb(0 0 0);
+  max-width: fit-content;
+}
+
+.subs-left {
+  float: left;
+  width: 100%;
+}
+
+.title {
+  font-size: clamp(100%, 3.3vmax, 3vmax);
+    font-weight:700;
+}
+
+.left { 
+  padding: 85px 250px 85px 110px;
+  overflow: hidden;
+  background: rgb(255 255 255);
+  border-radius: 13.3vw 0vw 16.3vw 0vw;
+  text-align: right;
+  min-width: 25vw;
+  z-index: 500;
+}
+
+.toppy .sub {
+  background-clip: content-box;
+  background-color: var(--main-color);
+  border-radius: 0px;
+  width: 12vw;
+  text-align: -webkit-center;
+  border-width: 9px 25px 0px 25px;
+  align-self: center;
+}
+.toppy .sub div {
+  font-weight: 700;
+  padding: 3px;
+  background: rgb(239 239 239);
+  border-radius: 25px;
+  border: solid var(--main-color);
+  border-width: 0px 15px 0px 15px;
+  margin: 41px 0px -3px 5px;
+  min-width: 69%;
+  max-width: min-content;
+
+}
+
+.toppy {
+  background-color: var(--main-color);
+  padding: 0vw 5vw;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  height: min-content;
+  max-height: 64%;
+  min-height: fit-content;
+  border-radius: 0vw 5vw 10vw 10vw;
+  align-content: flex-start;
+  color: rgb(61 30 40);
+    font-size: 1.25rem;
+    line-height: 1.625;
+    --text-opacity: 1;
+}
+
+.toppy .sub p {
+  padding: 9px;
+  border-radius: 33px;
+  background: rgb(232 232 232);
+  border: solid rgb(255 217 228);
+  font-size: small;
+  border-width: 0px 4px 0px 4px;
+  margin: 0px 0px 0px 0px;
+  width: fit-content;
+  font-size: 1.00rem;
+  line-height: 1.525;
+  --text-opacity: 1;
+}
+
+.bugger {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.couscous {
+  margin-bottom: 10vw;
+  max-width: 50%;
+}
+
+.left_intro {
+  margin: 0 auto;
+  padding: 7vw 9vw 0vw 8vw;
+  background: white;
+  text-align: justify;
+  border-radius: 55vw 0vw 110vw 25vw;
+  white-space: pre-wrap;
+}
+
+.left_intro p {
+  height: fit-content;
+}
+
+.status p {
+  /* display: none!important; */
+  height: 12px!important;
+  opacity: 0;
+}
+
+.status div {
+  background: rgb(222 222 222)!important;
+  color: rgb(185 185 185)!important;
+}

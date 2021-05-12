@@ -1,0 +1,70 @@
+.grad-0 {
+  background: radial-gradient(circle at 50% 40%, #ffffff, #243966, #0e0b1c, #192228, #0a3831, #1f005c);
+  background-size: 24.09% 0.099%;
+  animation: rotation 15s linear infinite;
+  opacity: 0.1;
+}
+
+@keyframes rotation {
+  from {
+    transform:rotate(0deg)
+  }
+  to {
+    transform: rotate(359deg);
+
+  }
+}
+
+#background {
+  height: 5060px;
+  width: 5160px;
+  position: fixed;
+  overflow: hidden;
+  top: -2000px;
+  left: -500px;
+  z-index: -1;
+  
+}
+
+#background2 {
+  height: 5060px;
+  width: 5160px;
+  position: fixed;
+  top: -2000px;
+  left: -500px;
+  opacity: 1;
+  mix-blend-mode: hard-light;
+}
+
+#background3 {
+  height: 5060px;
+  width: 5160px;
+  position: fixed;
+  top: -2000px;
+  left: -500px;
+  opacity: 1;
+  mix-blend-mode: luminosity;
+  z-index: -1;
+}
+
+.grad-1 {
+  background: linear-gradient(
+270deg
+, #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
+}
+
+@keyframes rotation2 {
+  from {
+    transform:rotate(359deg)
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.grad-2 {
+  background: linear-gradient( 
+  275deg
+  , #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
+  opacity: 0.4!important;
+  }

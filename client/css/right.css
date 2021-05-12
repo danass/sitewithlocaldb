@@ -1,0 +1,54 @@
+.right {
+  overflow: auto;
+  background-color: var(--main-color);
+  transition: opacity 0.1s;
+  border-radius: 13.3vw 13.3vw 13.3vw 13.3vw;
+  margin: 1vw;
+  width:100%;
+}
+
+
+.entry-date {
+  text-align: -webkit-center;
+  padding: 15px;
+  width: 60%;
+}
+
+.entry iframe {
+  position: relative;
+}
+.video {
+  width: 50%;
+  height: 50vh;
+  left: 25%;
+  border: none;
+  border-radius: 25px;
+  margin-top: 16vh;
+  margin-bottom: 16vh;
+}
+
+.caption {
+  text-align-last: center;
+  font-family: imperial;
+  font-size: x-small;
+  padding: 15px;
+}
+
+
+
+p {
+  margin: 0;
+  /* line-height: 1.27em; */
+}
+
+
+
+.entry-text {
+  width: 30vw;
+  margin: 0 auto;
+  padding: 0vh 0vw 3vh 0vw;
+  font-family: imperial;
+  white-space: pre-line;
+  text-align: justify;
+}
+

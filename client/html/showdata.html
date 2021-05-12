@@ -1,0 +1,21 @@
+<template name="showdata">
+  <div id="table-list">
+
+  </div>
+  <div id="table-container">
+
+  <table id="table">
+    {{#each row in data}}
+    {{log row}}
+    <tr>
+     {{#each k in key row}}
+     <td>
+       {{log row.['k'] }}
+
+     </td>
+     {{/each}}
+    </tr>
+    {{/each}}
+  </table>    
+  </div>
+</template>
