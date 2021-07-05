@@ -145,3 +145,17 @@ Template.registerHelper('yt_thumbnail', function(id) {
 Template.registerHelper('key', function(o) {
   return Object.keys(o)
 })
+
+Template.registerHelper('values', function(o) {
+    return Object.values(o).forEach(i=> {
+      if (typeof(i) == 'object'){
+        console.log(Object.values(i))
+     return i
+      }
+     else {
+      return Object.values(o)
+     }
+    })
+  
+  
+})

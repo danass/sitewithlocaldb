@@ -6,12 +6,10 @@
 
   <table id="table">
     {{#each row in data}}
-    {{log row}}
     <tr>
-     {{#each k in key row}}
+     {{#each k in (values row)}}
      <td>
-       {{log row.['k'] }}
-
+      {{k}}
      </td>
      {{/each}}
     </tr>
