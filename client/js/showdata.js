@@ -3,14 +3,13 @@ Template.showdata.onCreated(function() {
 })
 
 Template.showdata.helpers({
-  data() {
-
+  data() { 
       return localdb.find({})
     }
 })
 
 Template.showdata.events({
   'click ' (e,i) {
-    console.log(localdb.find({}).fetch())
+
   }
 })

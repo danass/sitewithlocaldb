@@ -1,0 +1,15 @@
+td {
+
+  padding: 10px;
+}
+
+tr:nth-child(odd) {
+  background: #7f7c574f;
+}
+
+tr:nth-child(even) {
+  background: #e6e6e6d1;
+}
+table {
+  padding: 20px;
+}

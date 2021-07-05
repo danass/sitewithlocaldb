@@ -12,14 +12,8 @@ Template.registerHelper("has", function (a, b) {
   return a?.includes(b)
 });
 
-Template.registerHelper("log", function (o, b) {
-  if(!b) {
-  console.log(o)
-  }
-  if(b) {
-    console.log(o, b)
-    }
-
+Template.registerHelper("log", function (o) {
+  console.log("log: ", o)
 });
 
 Template.registerHelper("lenindex", function (o) {
@@ -27,7 +21,7 @@ Template.registerHelper("lenindex", function (o) {
 });
 
 Template.registerHelper("len", function (o) {
-  return o.length
+  return o?.length
 });
 
 Template.registerHelper("lessthan", function (a, b) {
@@ -56,6 +50,7 @@ return str?.split(" ").splice(0,n).join(" ");
 });
 
 Template.registerHelper("typeof", function (o) {
+
   return typeof(o)
   });
 
@@ -147,15 +142,56 @@ Template.registerHelper('key', function(o) {
 })
 
 Template.registerHelper('values', function(o) {
-    return Object.values(o).forEach(i=> {
-      if (typeof(i) == 'object'){
-        console.log(Object.values(i))
-     return i
-      }
-     else {
-      return Object.values(o)
+
+   return function go(o, round) {  
+    
+     if(round) {
+      let keys =  Object.entries(o[1]).map(val => {
+        return val[0]
+      }) 
+
+      let parent = o[0]
+      let values =  Object.entries(o[1]).map(val => {
+        return val[1]
+      }) 
+
+      return keys.map((key, idx) => {
+        
+        if (typeof( values[idx] ) == "object" ) {
+
+           subcell = go([key, values[idx]], true)
+          return subcell
+        }
+        if (typeof( values[idx] ) != "object" ) {
+          console.log("done: ", [parent, key, values[idx] ])
+          return [parent, key, values[idx] ]
+        }
+
+      })
      }
-    })
-  
-  
+
+     return  o.map((obj, index) => {
+       let keys =  Object.entries(obj).map(val => {
+        return val[0]
+        })
+
+        let values =  Object.entries(obj).map(val => {
+          return val[1]
+          })
+
+        return keys.map((key, indx) =>  {
+          let type = typeof(values[indx])
+          console.log("defeuser:", values[indx])
+          if (type == "object") {
+            
+            return go([key, values[indx]], true)
+          }
+          let typon = Object.prototype.toString.call(values[indx])
+          return  [ key, values[indx] ]
+        })
+      })
+    }(o)
+
 })
+
+

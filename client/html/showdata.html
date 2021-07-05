@@ -4,16 +4,17 @@
   </div>
   <div id="table-container">
 
-  <table id="table">
-    {{#each row in data}}
-    <tr>
-     {{#each k in (values row)}}
-     <td>
-      {{k}}
-     </td>
-     {{/each}}
-    </tr>
-    {{/each}}
-  </table>    
+
+    <table id="table">
+      {{#each row in (values data) }}
+      <tr>
+        <td>{{@index}}</td>
+        {{#each entry in row}}
+
+         <td>{{entry}}</td>
+         {{/each}}
+      </tr>
+      {{/each}}
+    </table>     
   </div>
 </template>
