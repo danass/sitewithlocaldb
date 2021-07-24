@@ -1,3 +1,41 @@
+// RECURSIVE CALL TEMPLATEHELPER  
+
+Template.registerHelper('values', function(o) {
+  return function go(o, round) {  
+    if(round) {
+
+     let keys =  Object.entries(o[1]).map(val => { return val[0] }) 
+     let parent = o[0]
+     let values =  Object.entries(o[1]).map(val => { return val[1] }) 
+
+     let data =  keys.map((key, idx) => {
+       if (typeof( values[idx] ) != "object" ) { return [parent, key, values[idx] ]  }
+       if (typeof( values[idx] ) == "object" ) { return  go([key, values[idx]], true) }
+     })
+
+     return data.map(o => { if (typeof(o) == "object") { return o.map(b => { return  b})  } }) 
+    }
+
+    return o.map((obj, index) => {
+
+     let keys =  Object.entries(obj).map(val => { return val[0] })
+     let values =  Object.entries(obj).map(val => { return val[1] })
+
+       return keys.map((key, i) =>  { 
+
+         let type = typeof(values[i])
+         if (type == "object") { return go([key, values[i]], true) }
+
+         return  [ key, values[i] ]
+       })
+
+     })
+   }(o)
+
+})
+
+//GENERAL HELPERS
+
 Template.registerHelper("eq", function (a, b) {
   return a == b;
 });
@@ -36,9 +74,7 @@ return db.findOne({ _id: this.params().id});
 Template.registerHelper("id", function (id) {
  return db.find({_id: id}) 
 })
-Template.registerHelper("colorType", function(type) {
-    return colorType[type]
-})
+
 Template.registerHelper("date", function (o) {
   let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   d = new Date(o)
@@ -50,58 +86,19 @@ return str?.split(" ").splice(0,n).join(" ");
 });
 
 Template.registerHelper("typeof", function (o) {
-
   return typeof(o)
   });
-
 
 Template.registerHelper("single", function (type) {
   return db.find({type:type})
 });
 
-
-Template.registerHelper("sortWorkBy", function (arr, method = "cd", order = "des") {
-  let sorting = [] 
-  let entries = []
-  arr?.map( (o,i) => {
-    // cd: CreatedDate, ab: Alphabetical, year: Year
-    if (method == "cd"){ sorting.push([o, new Date(db.findOne(o)?.createdTime)]) }
-    if (method == "ab"){ sorting.push([o, new Date(db.findOne(o)?.fields?.Name)]) }
-    if (method == "year"){ sorting.push([o, new Date(db.findOne(o)?.fields?.Year)]) }
-  })
-  let sorted = sorting.sort((a,b) =>  {
-    // des: descending, asc: ascending
-    if(order== "des") {return  b[1] - a[1] }
-    if(order== "asc") {return  a[1] - b[1] }
-  })
-  sorted?.map(o => {
-    entries.push(db.find({_id: o[0] })) 
-  })
-  return entries
-});
-
-Template.registerHelper("sortEntryBy", function (arr, method = "cd", order = "des") {
-  let sorting = [] 
-  let entries = []
-  arr?.map( (o,i) => {
-    // cd: CreatedDate, ab: Alphabetical, year: Year
-    if (method == "cd"){ sorting.push([o, new Date(db.findOne(o)?.createdTime)]) }
-  })
-  let sorted = sorting.sort((a,b) =>  {
-    // des: descending, asc: ascending
-    if(order== "des") {return  b[1] - a[1] }
-    if(order== "asc") {return  a[1] - b[1] }
-  })
-  sorted?.map(o => {
-    entries.push(db.find({_id: o[0] })) 
-  })
-  return entries
-});
+Template.registerHelper('key', function(o) {
+  return Object.keys(o)
+})
 
 
-//['item1', 'item2', ...] => 'item1 item2...' 
-//variant compact true: 'item1-item2'
-Template.registerHelper("strarr", function (field, compact=false) {
+Template.registerHelper("arrstr", function (field, compact=false) {
   let str = ''
   if (field) {
     field?.map((f, i) => {
@@ -115,6 +112,9 @@ Template.registerHelper("strarr", function (field, compact=false) {
   }
   else { return '' }
 });
+
+
+// PERSONALISED SPACEBAR 
 
 Blaze.Template.registerHelper("youtube", new Template('youtube', function () {
   var view = this;
@@ -135,63 +135,3 @@ Template.registerHelper('yt_thumbnail', function(id) {
   posturl = '/hqdefault.jpg'
   return preurl.concat(id, posturl)
 })
-
-
-Template.registerHelper('key', function(o) {
-  return Object.keys(o)
-})
-
-Template.registerHelper('values', function(o) {
-
-   return function go(o, round) {  
-    
-     if(round) {
-      let keys =  Object.entries(o[1]).map(val => {
-        return val[0]
-      }) 
-
-      let parent = o[0]
-      let values =  Object.entries(o[1]).map(val => {
-        return val[1]
-      }) 
-
-      return keys.map((key, idx) => {
-        
-        if (typeof( values[idx] ) == "object" ) {
-
-           subcell = go([key, values[idx]], true)
-          return subcell
-        }
-        if (typeof( values[idx] ) != "object" ) {
-          console.log("done: ", [parent, key, values[idx] ])
-          return [parent, key, values[idx] ]
-        }
-
-      })
-     }
-
-     return  o.map((obj, index) => {
-       let keys =  Object.entries(obj).map(val => {
-        return val[0]
-        })
-
-        let values =  Object.entries(obj).map(val => {
-          return val[1]
-          })
-
-        return keys.map((key, indx) =>  {
-          let type = typeof(values[indx])
-          console.log("defeuser:", values[indx])
-          if (type == "object") {
-            
-            return go([key, values[indx]], true)
-          }
-          let typon = Object.prototype.toString.call(values[indx])
-          return  [ key, values[indx] ]
-        })
-      })
-    }(o)
-
-})
-
-

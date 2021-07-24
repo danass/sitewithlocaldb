@@ -44,6 +44,28 @@
   }
   ]
 
-data.map(o => {
-  localdb.upsert(o._id, o)
-  })
+
+  data2 = [
+    {
+      key: "val"
+    },
+    {
+      key: ["val1", "val2", "val3"]
+    },
+    {
+      key: {
+        subkey: "val"
+      }
+    },
+    {
+      key1: {
+        subkey1: "val"
+      },
+      key2: {
+        subkey1: "val",
+        subkey2: "val"
+      }
+    }
+  ]
+
+  
