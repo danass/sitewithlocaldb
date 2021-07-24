@@ -1,4 +1,25 @@
   data = [
+
+    {
+      level0key: "val"
+    },
+    {
+      key: {
+        subkey: "val"
+      }
+    },
+    {
+      level_0_key: {
+        level_1_key: "val"
+      },
+      level_0_key2: {
+        level_1_key: "val",
+        level_1_key2: "val"
+      }
+    },
+    {
+      key123: ["val1", "val2", "val3 "]
+    },
     {
       fields: {
         Name: "Daniel",
@@ -40,17 +61,33 @@
         }
       }
     },
+
     {
     untypedobject: {
       dear: "father"
     }
-  }
+    },
+    {
+      // structure of data that could be the bare minimum basis for all objects
+      id:  "by creating an new object in the database, mongo will give it _id automatically",
+      label: "this label could be the name of a class of objects",
+      fields: {
+        field1: "this is the content of the first field of the object",
+        field2: "value of field2",
+        field3: {
+          content: "field3 could itself contain a new object ",
+          meta: "and each object could contain another one",
+          or: ["or they could", "contain", "an array"]
+        }
+      }
+
+    },
   ]
 
 
   data2 = [
     {
-      key: "val"
+      keyo: "valo"
     },
     {
       key: ["val1", "val2", "val3"]
