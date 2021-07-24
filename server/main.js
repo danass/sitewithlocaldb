@@ -2,9 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import  axios from 'axios'
 import _ from 'lodash';
 
-db.remove({})
+localdb.remove({})
 
 
 data.forEach(o => {
-  db.insert(o)
+  localdb.insert(o)
 })

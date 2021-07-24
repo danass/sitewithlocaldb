@@ -1,7 +1,2 @@
 node_modules/
 server/conf.js
-*.prev
-client/css/*.css
-!client/css/showdata.css
-server/Untitled-1.html
-html/*
