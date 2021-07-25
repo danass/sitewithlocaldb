@@ -6,3 +6,4 @@ node_modules/
 client/js/absolute.js
 client/html/*
 !client/html/showdata.html
+client/js/absolute.js
