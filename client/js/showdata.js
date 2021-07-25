@@ -27,11 +27,11 @@ Template.registerHelper('table', function recur(o, bool) {
     return (
         HTML.TR({class: 'tuple'},
            HTML.TD({'class': 'item-key'}, HTML.B(key)),
-           HTML.TD({'class': 'item-val'}, (value instanceof Object)? recur(value, true): value )  )
+           HTML.TD({'class': 'item-val'}, (value instanceof Object)? recur(value, true):  HTML.TABLE(value) )  )
     )
   })
   
-  render = HTML.toHTML( HTML.TABLE(entries))
+  render = HTML.toHTML( HTML.TABLE({class:"entry"},entries))
   console.log(render)
   return render
 

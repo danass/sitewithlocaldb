@@ -1,36 +1,101 @@
-td {
 
-  padding: 10px;
+body {
+  font-family: Open Sans,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color emoji;
 }
 
-tr:nth-child(odd) {
-  background: #7f7c574f;
+
+
+  tr:nth-child(odd) {
+    background: #a5cde659;
+  }
+  
+  tr:nth-child(even) {
+    background: #f2f2f2d1;
+  }
+  
+  table {
+    padding: 0px;
+  }
+  
+  .tuple {
+    display: flex;
+    /* max-width: 16vw; */
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  tbody {
+    display: flex;
+  }
+  
+  .tuple .item-key, .tuple .item-val {
+    /* min-width: 3vw; */
+    /* text-align-last: center; */
+  }
+  
+  .tuple-vk, .tuple-vk tbody tr {
+    min-width: 5vw;
+  }
+  
+  .tuple-vk tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  td.item-val {
+    display: flex;
+    flex-wrap: wrap;
+    background: #0c196470;
+    /* width: fit-content; */
+  }
+  body {
+    margin:0vw auto;
+  }
+
+  .item-v {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-tr:nth-child(even) {
-  background: #e6e6e6d1;
-}
-table {
-  padding: 5px;
-}
-
-.tuple {
+table.entry {
+  /* padding: 10px; */
+  /* width: 97vw; */
+  /* margin: 20px; */
   display: flex;
-  flex-direction: column;
+  border: solid 11px hsl(240deg 13% 89% / 80%);
+}
+
+#__blaze-root {
+  background: hsl(228 47% 57% / 0.35);
+}
+
+.item-val {width: fit-content;}
+
+.tuple-vk {
   width: fit-content;
 }
-tbody {
+
+.item-v {
   display: flex;
-}
-td.item-val {
-  background: gold;
-}
-
-.tuple .item-key, .tuple .item-val {
-  min-width: 3vw;
-  text-align-last: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.tuple-vk, .tuple-vk tbody tr {
-  min-width: 10vw;
+td.item-v {
+  padding: 1vh;
+}
+
+td.item-k {
+  padding:   1vh;
+}
+
+.item-val {
+  padding:   1vh;
+
+}
+
+td.item-key {
+  padding:  1vh;
+  max-width: 100%!important;
 }
