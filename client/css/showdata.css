@@ -11,13 +11,26 @@ tr:nth-child(even) {
   background: #e6e6e6d1;
 }
 table {
-  padding: 20px;
+  padding: 5px;
 }
 
 .tuple {
   display: flex;
   flex-direction: column;
+  width: fit-content;
 }
 tbody {
   display: flex;
+}
+td.item-val {
+  background: gold;
+}
+
+.tuple .item-key, .tuple .item-val {
+  min-width: 3vw;
+  text-align-last: center;
+}
+
+.tuple-vk, .tuple-vk tbody tr {
+  min-width: 10vw;
 }
