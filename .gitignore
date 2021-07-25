@@ -1,8 +1,8 @@
 server/conf.js
 client/css/*
 server/Untitled-1.html
-html/*
 public/fonts/*
 node_modules/
+client/js/absolute.js
 client/html/*
 !client/html/showdata.html
