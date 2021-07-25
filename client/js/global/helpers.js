@@ -1,8 +1,8 @@
-// RECURSIVE CALL TEMPLATEHELPER  
+// RECURSIVE CALL TEMPLATEHELPER 
 
 Template.registerHelper('values', function(o) {
   return function go(o, round) {  
-    if(round) {
+    if (round) {
 
      let keys =  Object.entries(o[1]).map(val => { return val[0] }) 
      let parent = o[0]
@@ -22,11 +22,9 @@ Template.registerHelper('values', function(o) {
      let values =  Object.entries(obj).map(val => { return val[1] })
 
        return keys.map((key, i) =>  { 
-
          let type = typeof(values[i])
          if (type == "object") { return go([key, values[i]], true) }
-
-         return  [ key, values[i] ]
+         else { return  [ key, values[i] ] }
        })
 
      })

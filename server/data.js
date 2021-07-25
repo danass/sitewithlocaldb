@@ -69,7 +69,7 @@
     },
     {
       // structure of data that could be the bare minimum basis for all objects
-      id:  "by creating an new object in the database, mongo will give it _id automatically",
+      _id:  "by creating an new object in the database, mongo will give it _id automatically",
       label: "this label could be the name of a class of objects",
       fields: {
         field1: "this is the content of the first field of the object",

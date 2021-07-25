@@ -1,33 +1,5 @@
-<template name="showdata">
-  <div id="table-list">
-
-  </div>
-  <div id="table-container">
-    <table id="table">
-      {{#each row in (values data) }}
-      <tr>
-        <td>{{@index}}</td>
-        {{#each entry in row}}
-         {{#each object in entry}}
-         {{#if eq (typeof object) "object"}}
-
-         {{#each item in object}}
-         <td>{{item}}</td>
-         {{/each}}
-         {{/if}}
-         {{/each}}
-         {{/each}}
-      </tr>
-      {{/each}}
-    </table>     
-  </div>
-</template>
-
-
 <template name="simplified">
-{{#each entry in data}}
-<td>
-{{log entry}}
-</td>
+{{#each entries in data}}
+{{{table entries}}}
 {{/each}}
 </template>

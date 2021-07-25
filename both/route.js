@@ -1,7 +1,7 @@
   FlowRouter.route('/', {
-    name: 'showdata',
+    name: 'simplified',
     action(params) {
-      BlazeLayout.render('showdata', {params: params})
+      BlazeLayout.render('simplified', {params: params})
     }
   })
 
