@@ -13,3 +13,11 @@ tr:nth-child(even) {
 table {
   padding: 20px;
 }
+
+.tuple {
+  display: flex;
+  flex-direction: column;
+}
+tbody {
+  display: flex;
+}
